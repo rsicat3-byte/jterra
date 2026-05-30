@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JTerra Property Group — Melbourne's Premier Property Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-dark: #111d33;
+    --navy-light: #243659;
+    --gold: #B8966E;
+    --gold-light: #d4b48a;
+    --gold-pale: #e8d5b8;
+    --cream: #F5F0E8;
+    --cream-dark: #ede6d8;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a5568;
+    --text-light: #8a9ab5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy-dark);
+    padding: 8px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--gold-pale);
+    letter-spacing: 0.08em;
+  }
+  .topbar a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+  .topbar a:hover { color: var(--gold-light); }
+  .topbar-right { display: flex; gap: 24px; align-items: center; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+  .nav-logo-icon svg { width: 100%; height: 100%; }
+  .nav-logo-text { line-height: 1; }
+  .nav-logo-text .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px; color: var(--white); letter-spacing: 0.14em; }
+  .nav-logo-text .sub { font-size: 9.5px; color: var(--gold); letter-spacing: 0.22em; font-weight: 500; text-transform: uppercase; margin-top: 2px; display: block; }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a {
+    color: #c8d0e0;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--gold); background: rgba(184,150,110,0.1); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy-dark) !important;
+    padding: 10px 22px !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-dark) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy-dark);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(135deg, rgba(27,42,74,0.97) 0%, rgba(17,29,51,0.85) 50%, rgba(27,42,74,0.7) 100%),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80') center/cover no-repeat;
+    animation: heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.04); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(17,29,51,0.8) 0%, transparent 60%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding: 0 80px;
+    animation: fadeUp 1s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(184,150,110,0.2);
+    border: 1px solid rgba(184,150,110,0.4);
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .hero-badge span { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 78px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    border-radius: 3px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(184,150,110,0.35); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    border-radius: 3px;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+    animation: fadeUp 1s 0.4s ease both;
+    opacity: 0;
+  }
+  .hero-stat {
+    padding: 22px 40px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 90px 80px; }
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 560px;
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--white); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-dark);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .process-step {
+    background: var(--white);
+    padding: 44px 32px;
+    position: relative;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .process-step:hover { background: var(--navy); }
+  .process-step:hover .step-num,
+  .process-step:hover .step-title,
+  .process-step:hover .step-desc { color: var(--white); }
+  .process-step:hover .step-icon { background: rgba(184,150,110,0.2); border-color: var(--gold); }
+  .process-step:hover .step-icon svg { stroke: var(--gold); }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 16px;
+    transition: color 0.3s;
+  }
+  .step-icon {
+    width: 52px;
+    height: 52px;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+  }
+  .step-icon svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 1.5; transition: stroke 0.3s; }
+  .step-title { font-size: 16px; font-weight: 700; color: var(--navy); letter-spacing: 0.05em; margin-bottom: 10px; transition: color 0.3s; text-transform: uppercase; font-size: 13px; }
+  .step-desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; font-weight: 300; transition: color 0.3s; }
+
+  /* ── HOMES / PACKAGES ── */
+  .homes { background: var(--cream); }
+  .homes-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .filter-tabs { display: flex; gap: 4px; background: var(--white); padding: 4px; border-radius: 5px; border: 1px solid var(--cream-dark); }
+  .filter-tab {
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    color: var(--text-mid);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .filter-tab.active, .filter-tab:hover { background: var(--navy); color: var(--white); }
+  .homes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .home-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .home-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  .home-card-img {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .home-card:hover .home-card-img img { transform: scale(1.05); }
+  .home-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .home-card-badge.gold { background: var(--gold); color: var(--navy-dark); }
+  .home-card-body { padding: 22px 22px 18px; }
+  .home-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .home-card-loc { font-size: 12px; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 5px; }
+  .home-card-loc svg { width: 12px; height: 12px; fill: var(--gold); }
+  .home-card-specs { display: flex; gap: 16px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--cream-dark); }
+  .spec { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-mid); font-weight: 500; }
+  .spec svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .home-card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .home-price { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); }
+  .home-price small { font-size: 11px; color: var(--text-light); font-family: 'Barlow', sans-serif; font-weight: 400; display: block; letter-spacing: 0.05em; }
+  .btn-sm {
+    background: var(--gold);
+    color: var(--navy-dark);
+    border: none;
+    padding: 9px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-sm:hover { background: var(--navy); color: var(--white); }
+
+  /* ── SUBURBS / INTERACTIVE MAP ── */
+  .suburbs { background: var(--navy-dark); padding: 90px 80px; }
+  .suburbs .section-title { color: var(--white); }
+  .suburbs .section-subtitle { color: rgba(255,255,255,0.55); }
+  .suburb-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .suburb-chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: center;
+  }
+  .suburb-chip:hover, .suburb-chip.active { background: var(--gold); border-color: var(--gold); }
+  .suburb-chip:hover .sc-name, .suburb-chip.active .sc-name { color: var(--navy-dark); }
+  .suburb-chip:hover .sc-count, .suburb-chip.active .sc-count { color: var(--navy-dark); opacity: 0.7; }
+  .sc-name { font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: 0.05em; transition: color 0.25s; }
+  .sc-count { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 3px; transition: all 0.25s; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--cream); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 32px;
+    position: relative;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .testi-card:hover { border-top-color: var(--gold); }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    color: var(--gold-pale);
+    line-height: 0.5;
+    margin-bottom: 16px;
+  }
+  .testi-text { font-size: 14.5px; color: var(--text-mid); line-height: 1.75; font-weight: 300; font-style: italic; margin-bottom: 24px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .testi-loc { font-size: 12px; color: var(--text-light); }
+  .testi-stars { color: var(--gold); font-size: 12px; margin-top: 2px; }
+
+  /* ── SPECIALIST PANEL ── */
+  .specialist {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  .specialist-img {
+    background: linear-gradient(135deg, var(--navy-dark), var(--navy-light));
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .specialist-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80') center/cover;
+    opacity: 0.3;
+  }
+  .specialist-avatar {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .avatar-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 600;
+    color: var(--navy-dark);
+    margin: 0 auto 20px;
+    border: 4px solid rgba(255,255,255,0.2);
+  }
+  .specialist-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--white); font-weight: 300; }
+  .specialist-role { font-size: 11px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
+  .specialist-content { padding: 70px 70px; display: flex; flex-direction: column; justify-content: center; }
+  .specialist-content .section-title { color: var(--white); }
+  .specialist-content .section-subtitle { color: rgba(255,255,255,0.55); }
+  .contact-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+  .contact-item { display: flex; align-items: center; gap: 14px; }
+  .contact-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(184,150,110,0.15);
+    border: 1px solid rgba(184,150,110,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .contact-detail { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 400; }
+  .contact-detail small { display: block; font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── LEAD FORM ── */
+  .lead-form-section { background: var(--cream); padding: 90px 80px; }
+  .lead-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .form-info .section-subtitle { margin-bottom: 32px; }
+  .why-list { display: flex; flex-direction: column; gap: 14px; }
+  .why-item { display: flex; align-items: flex-start; gap: 12px; }
+  .why-check {
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .why-check svg { width: 10px; height: 10px; stroke: var(--white); fill: none; stroke-width: 2.5; }
+  .why-text { font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+  .form-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 44px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--gold);
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .form-subtitle { font-size: 13px; color: var(--text-light); margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 7px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--cream);
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 4px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-check-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .check-label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; color: var(--text-mid); }
+  .check-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; }
+  .btn-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'Barlow', sans-serif;
+  }
+  .btn-submit:hover { background: var(--gold); color: var(--navy-dark); }
+  .form-privacy { font-size: 11px; color: var(--text-light); text-align: center; margin-top: 12px; line-height: 1.5; }
+
+  /* ── SUCCESS MSG ── */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .success-msg.show { display: block; }
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .success-icon svg { width: 28px; height: 28px; stroke: var(--white); fill: none; stroke-width: 2; }
+  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .success-text { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  /* ── FAQ ── */
+  .faq { background: var(--white); padding: 90px 80px; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .faq-item {
+    border: 1.5px solid var(--cream-dark);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .faq-q:hover { background: var(--cream); }
+  .faq-q.open { background: var(--navy); color: var(--white); }
+  .faq-q.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); }
+  .faq-q.open .faq-icon svg { stroke: var(--gold); }
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .faq-icon svg { width: 12px; height: 12px; stroke: var(--text-light); fill: none; stroke-width: 2; transition: stroke 0.3s; }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    padding: 0 22px;
+    font-weight: 300;
+  }
+  .faq-a.open { max-height: 200px; padding: 16px 22px 20px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    padding: 70px 80px 0;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+  .footer-brand .brand-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 700; color: var(--white); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .footer-brand .brand-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 20px; font-weight: 300; max-width: 280px; }
+  .footer-social { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+  }
+  .social-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-dark); }
+  .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  .footer-bottom a { color: rgba(184,150,110,0.7); text-decoration: none; }
+
+  /* ── STICKY CTA ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .sticky-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .sticky-btn.phone { background: var(--gold); color: var(--navy-dark); }
+  .sticky-btn.phone:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .sticky-btn.enquire { background: var(--navy); color: var(--white); border: 1.5px solid var(--gold); }
+  .sticky-btn.enquire:hover { background: var(--gold); color: var(--navy-dark); transform: translateY(-2px); }
+  .sticky-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,15,30,0.85);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 44px;
+    max-width: 560px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: fadeUp 0.3s ease;
+    border-top: 4px solid var(--gold);
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: var(--cream);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-mid);
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: var(--navy); color: var(--white); }
+  .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--navy); font-weight: 600; margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+
+  /* ── COSTS SECTION ── */
+  .costs { background: var(--cream); padding: 90px 80px; }
+  .costs-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 50px; }
+  .cost-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 30px 24px;
+    border-bottom: 3px solid var(--cream-dark);
+    transition: border-color 0.3s;
+  }
+  .cost-card:hover { border-bottom-color: var(--gold); }
+  .cost-icon { font-size: 28px; margin-bottom: 14px; }
+  .cost-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+  .cost-range { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 10px; }
+  .cost-detail { font-size: 12.5px; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+  .cost-note { font-size: 11px; color: var(--text-light); margin-top: 8px; font-style: italic; }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1024px) {
+    section { padding: 70px 40px; }
+    nav { padding: 0 30px; }
+    .topbar { padding: 8px 30px; }
+    .homes-grid { grid-template-columns: repeat(2,1fr); }
+    .suburb-grid { grid-template-columns: repeat(3,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .costs-grid { grid-template-columns: 1fr 1fr; }
+    .specialist { grid-template-columns: 1fr; }
+    .specialist-img { min-height: 300px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-content { padding: 0 30px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .homes-grid { grid-template-columns: 1fr; }
+    .lead-form-wrapper { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>📍 Melbourne, Victoria, Australia</span>
+  <div class="topbar-right">
+    <a href="tel:+61433422817">📞 +61 433 422 817</a>
+    <a href="mailto:info@jterrapropertygroup.com.au">✉ info@jterrapropertygroup.com.au</a>
+    <a href="#enquire" onclick="openModal()">Free Consultation →</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <!-- Exact JTerra logo: house outline + key inside, navy + gold -->
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- House roof / walls -->
+        <path d="M40 6 L6 32 L6 74 L74 74 L74 32 Z" fill="#1B2A4A"/>
+        <!-- Roof ridge outline -->
+        <path d="M40 6 L6 32 L14 32 L14 68 L66 68 L66 32 L74 32 Z" fill="#1B2A4A" stroke="#ffffff" stroke-width="0" />
+        <!-- House outline lighter inner -->
+        <path d="M40 10 L10 34 L10 70 L70 70 L70 34 Z" fill="none" stroke="#2a3f6e" stroke-width="1"/>
+        <!-- Chimney left -->
+        <rect x="20" y="20" width="7" height="16" rx="1" fill="#1B2A4A" stroke="#3a5080" stroke-width="0.5"/>
+        <!-- Chimney right -->
+        <rect x="53" y="22" width="7" height="14" rx="1" fill="#1B2A4A" stroke="#3a5080" stroke-width="0.5"/>
+        <!-- Key bow (circle) - gold, upper center -->
+        <circle cx="40" cy="34" r="11" fill="none" stroke="#B8966E" stroke-width="3.5"/>
+        <circle cx="40" cy="34" r="5.5" fill="none" stroke="#B8966E" stroke-width="2.5"/>
+        <!-- Key shaft going down -->
+        <rect x="37.8" y="44" width="4.4" height="22" rx="1.5" fill="#B8966E"/>
+        <!-- Key teeth right side -->
+        <rect x="42.2" y="52" width="5" height="3.5" rx="1" fill="#B8966E"/>
+        <rect x="42.2" y="59" width="3.5" height="3.5" rx="1" fill="#B8966E"/>
+        <!-- Column lines on key shaft (detail from card) -->
+        <rect x="35" y="48" width="2.5" height="14" rx="0.8" fill="#B8966E" opacity="0.6"/>
+        <rect x="43" y="48" width="0" height="0" fill="none"/>
+        <!-- Roof triangle overlay to make house shape crisp -->
+        <path d="M40 8 L8 33 L72 33 Z" fill="#1B2A4A"/>
+        <!-- Roof ridge line in white/light -->
+        <path d="M40 8 L8 33" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+        <path d="M40 8 L72 33" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <div class="brand">JTERRA</div>
+      <span class="sub">Property Group</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#homes">Home Designs</a>
+    <a href="#suburbs">Locations</a>
+    <a href="#process">How It Works</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#enquire" class="nav-cta" onclick="openModal()">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Connecting You to Complete Property Solutions.</div>
+    <!-- Full logo lockup matching business card -->
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:28px;">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:68px;height:68px;flex-shrink:0;">
+        <!-- House shape -->
+        <path d="M40 8 L8 33 L72 33 Z" fill="white" opacity="0.95"/>
+        <path d="M14 33 L14 70 L66 70 L66 33 Z" fill="white" opacity="0.95"/>
+        <!-- Subtle side lines on house walls -->
+        <line x1="14" y1="33" x2="14" y2="70" stroke="rgba(184,150,110,0.3)" stroke-width="0.5"/>
+        <line x1="66" y1="33" x2="66" y2="70" stroke="rgba(184,150,110,0.3)" stroke-width="0.5"/>
+        <!-- Key bow outer ring -->
+        <circle cx="40" cy="34" r="11.5" fill="none" stroke="#B8966E" stroke-width="3.8"/>
+        <!-- Key bow inner ring -->
+        <circle cx="40" cy="34" r="5.5" fill="none" stroke="#B8966E" stroke-width="2.8"/>
+        <!-- Key shaft -->
+        <rect x="37.6" y="44.5" width="4.8" height="21.5" rx="1.8" fill="#B8966E"/>
+        <!-- Key teeth -->
+        <rect x="42.4" y="51.5" width="5.5" height="4" rx="1.2" fill="#B8966E"/>
+        <rect x="42.4" y="58.5" width="4" height="4" rx="1.2" fill="#B8966E"/>
+        <!-- Left column bar (detail from card) -->
+        <rect x="34.5" y="47" width="2.8" height="15" rx="1" fill="#B8966E" opacity="0.55"/>
+        <!-- Roof ridge glow -->
+        <path d="M40 8 L8 33" stroke="rgba(184,150,110,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M40 8 L72 33" stroke="rgba(184,150,110,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div style="line-height:1;">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:42px;color:#ffffff;letter-spacing:0.14em;line-height:1;">JTERRA</div>
+        <div style="font-size:13px;color:#B8966E;letter-spacing:0.28em;font-weight:500;text-transform:uppercase;margin-top:3px;">PROPERTY GROUP</div>
+      </div>
+    </div>
+    <h1>Find Your <em>Dream Home</em><br>in Melbourne</h1>
+    <p>JTerra Property Group connects you to complete property solutions — from finance and land selection to design, construction, and handover. Proudly serving Melbourne's diverse communities.</p>
+    <div class="hero-btns">
+      <a href="#homes" class="btn-primary">View Home Designs</a>
+      <a href="#enquire" class="btn-outline" onclick="openModal(); return false;">Free Consultation</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">500+</div><div class="label">Homes Delivered</div></div>
+    <div class="hero-stat"><div class="num">15+</div><div class="label">Builder Partners</div></div>
+    <div class="hero-stat"><div class="num">30+</div><div class="label">Melbourne Suburbs</div></div>
+    <div class="hero-stat"><div class="num">5★</div><div class="label">Client Rating</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="process">
+  <div class="section-tag">Our Process</div>
+  <h2 class="section-title">From <em>Dream</em> to Door Keys</h2>
+  <p class="section-subtitle">We guide you every step of the way. Our end-to-end process makes building your first or next home in Melbourne seamless and stress-free.</p>
+  <div class="process-grid fade-in">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <div class="step-title">Finance & Pre-Approval</div>
+      <div class="step-desc">We introduce you to expert finance brokers who tailor the perfect solution — including FHOG, stamp duty concessions, and low-deposit options.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="step-title">Land Selection</div>
+      <div class="step-desc">We help source the perfect block in your preferred suburb — close to schools, transport, parks, and your community. South-East, West, North corridors.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM7 7h4v4H7zm0 6h4v4H7zm6-6h4v4h-4zm0 6h4v4h-4z"/></svg>
+      </div>
+      <div class="step-title">Home Design</div>
+      <div class="step-desc">Collaborate on a floor plan and façade that suits your lifestyle. Single storey, double storey, knockdown rebuild — 200+ designs available.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </div>
+      <div class="step-title">Build & Handover</div>
+      <div class="step-desc">We support you through construction with regular updates, builder liaison, and final inspection — then we hand you the keys to your new home.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME DESIGNS -->
+<section class="homes" id="homes">
+  <div class="homes-header">
+    <div>
+      <div class="section-tag">Featured Packages</div>
+      <h2 class="section-title">Home & Land <em>Packages</em></h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterHomes('all', this)">All</button>
+      <button class="filter-tab" onclick="filterHomes('single', this)">Single Storey</button>
+      <button class="filter-tab" onclick="filterHomes('double', this)">Double Storey</button>
+      <button class="filter-tab" onclick="filterHomes('first', this)">First Home</button>
+    </div>
+  </div>
+
+  <div class="homes-grid" id="homes-grid">
+    <!-- Card 1 -->
+    <div class="home-card fade-in" data-type="single first">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Clyde North Home"/>
+        <span class="home-card-badge gold">First Home Buyer</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Elara 22</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Clyde North, South-East Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 4 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg> 2 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 2 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 22 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$549,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="home-card fade-in" data-type="double">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Pakenham Home"/>
+        <span class="home-card-badge">Popular</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Avondale 32</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Pakenham, South-East Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 5 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> 3 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 2 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 32 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$789,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="home-card fade-in" data-type="single">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Werribee Home"/>
+        <span class="home-card-badge">New Release</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Serenity 26</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Werribee, Western Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 4 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> 2 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 2 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 26 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$629,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="home-card fade-in" data-type="double">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=600&q=80" alt="Craigieburn Home"/>
+        <span class="home-card-badge gold">Best Value</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Hillcrest 28</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Craigieburn, Northern Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 4 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> 2.5 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 2 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 28 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$699,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="home-card fade-in" data-type="single first">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Point Cook Home"/>
+        <span class="home-card-badge">Selling Fast</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Marina 20</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Point Cook, Western Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 3 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> 2 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 1 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 20 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$489,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="home-card fade-in" data-type="double">
+      <div class="home-card-img">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="Berwick Home"/>
+        <span class="home-card-badge">Premium</span>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">The Prestige 36</div>
+        <div class="home-card-loc"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Berwick, South-East Melbourne</div>
+        <div class="home-card-specs">
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M2 10h20v10H2zM8 10V6a4 4 0 0 1 8 0v4"/></svg> 5 Bed</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> 3 Bath</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 3 Garage</div>
+          <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg> 36 sq</div>
+        </div>
+        <div class="home-card-footer">
+          <div class="home-price"><small>From</small>$1,050,000</div>
+          <button class="btn-sm" onclick="openModal()">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBURBS -->
+<section class="suburbs" id="suburbs">
+  <div class="section-tag">Where We Build</div>
+  <h2 class="section-title">Melbourne Growth <em>Corridors</em></h2>
+  <p class="section-subtitle">We have land and house packages across Melbourne's fastest-growing suburbs — tap any suburb to see current availability.</p>
+  <div class="suburb-grid" id="suburb-grid">
+    <div class="suburb-chip active" onclick="toggleSuburb(this)"><div class="sc-name">Clyde North</div><div class="sc-count">12 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Pakenham</div><div class="sc-count">8 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Craigieburn</div><div class="sc-count">10 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Werribee</div><div class="sc-count">7 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Point Cook</div><div class="sc-count">9 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Berwick</div><div class="sc-count">6 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Tarneit</div><div class="sc-count">11 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Wollert</div><div class="sc-count">5 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Mickleham</div><div class="sc-count">4 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Donnybrook</div><div class="sc-count">6 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Officer</div><div class="sc-count">8 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Rockbank</div><div class="sc-count">5 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Melton South</div><div class="sc-count">7 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Truganina</div><div class="sc-count">9 packages</div></div>
+    <div class="suburb-chip" onclick="toggleSuburb(this)"><div class="sc-name">Sunbury</div><div class="sc-count">4 packages</div></div>
+  </div>
+  <div style="margin-top:30px; text-align:center;">
+    <button class="btn-primary" onclick="openModal()">Get Package List for My Suburb →</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-tag">Client Stories</div>
+  <h2 class="section-title">What Our Families <em>Say</em></h2>
+  <p class="section-subtitle">Over 500 Melbourne families have built their dream homes with JTerra Property Group. Here's what a few of them had to say.</p>
+  <div class="testi-grid fade-in">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Jaeleen and the JTerra team made our first home journey incredibly smooth. From getting our finance approved to handing over the keys, we always felt supported. We couldn't be happier with our new home in Clyde North.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RC</div>
+        <div>
+          <div class="testi-name">Rodel & Cora Santos</div>
+          <div class="testi-loc">Clyde North — First Home Owners</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">As migrants, we were nervous about the building process. JTerra explained everything clearly and found us a package that suited our budget perfectly. Our double storey in Craigieburn is exactly what we dreamed of.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MJ</div>
+        <div>
+          <div class="testi-name">Mark & Jenny Dela Cruz</div>
+          <div class="testi-loc">Craigieburn — Upgrade Build</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">We were referred by a family friend and we couldn't be more grateful. Jaeleen is so knowledgeable and patient. The whole process from land selection to construction took 14 months and the result is stunning.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AB</div>
+        <div>
+          <div class="testi-name">Angelo & Bless Reyes</div>
+          <div class="testi-loc">Pakenham — Family Home</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALIST -->
+<div class="specialist" id="about">
+  <div class="specialist-img">
+    <div class="specialist-avatar">
+      <div class="avatar-circle">JS</div>
+      <div class="specialist-name">Jaeleen Sicat</div>
+      <div class="specialist-role">Senior Property Specialist</div>
+    </div>
+  </div>
+  <div class="specialist-content">
+    <div class="section-tag">Your Specialist</div>
+    <h2 class="section-title" style="color:var(--white)">Meet <em>Jaeleen</em></h2>
+    <p class="section-subtitle" style="color:rgba(255,255,255,0.55)">With years of experience in the Melbourne property market, Jaeleen Sicat is dedicated to helping families find, finance, and build their perfect home. Her deep knowledge of Melbourne's growth corridors and builder network makes her your ultimate advantage.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+        </div>
+        <div class="contact-detail"><small>Phone</small>+61 433 422 817</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail"><small>Email</small>info@jterrapropertygroup.com.au</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="contact-detail"><small>Based In</small>Melbourne, Victoria, Australia</div>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="openModal()">Book a Free Consultation</button>
+  </div>
+</div>
+
+<!-- LEAD FORM -->
+<section class="lead-form-section" id="enquire">
+  <div class="lead-form-wrapper">
+    <div class="form-info fade-in">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Start Your <em>Home Journey</em> Today</h2>
+      <p class="section-subtitle">Fill in the form and Jaeleen will personally reach out within 24 hours to discuss your options — no obligation, no pressure.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="why-text">Free, no-obligation consultation with a licensed specialist</div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="why-text">Access to exclusive land releases before they hit the market</div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="why-text">First Home Owner Grant (FHOG) guidance and stamp duty advice</div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="why-text">Finance pre-approval assistance with trusted brokers</div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+          <div class="why-text">End-to-end support from land to handover</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-card fade-in" id="form-container">
+      <div class="form-title">Request a Free Consultation</div>
+      <div class="form-subtitle">We'll contact you within 24 hours · No spam, ever.</div>
+      <form id="lead-form" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name *</label>
+            <input type="text" placeholder="Juan" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name *</label>
+            <input type="text" placeholder="dela Cruz" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="juan@email.com" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="04XX XXX XXX" required>
+          </div>
+          <div class="form-group">
+            <label>Budget Range</label>
+            <select>
+              <option value="">Select range...</option>
+              <option>Under $450,000</option>
+              <option>$450,000 – $600,000</option>
+              <option>$600,000 – $800,000</option>
+              <option>$800,000 – $1,000,000</option>
+              <option>Over $1,000,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Suburb / Area</label>
+          <select>
+            <option value="">Select suburb...</option>
+            <option>Clyde North</option>
+            <option>Pakenham</option>
+            <option>Craigieburn</option>
+            <option>Werribee</option>
+            <option>Point Cook</option>
+            <option>Berwick</option>
+            <option>Tarneit</option>
+            <option>Other / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>I Am A...</label>
+          <select>
+            <option>First Home Buyer</option>
+            <option>Upgrader / Building Again</option>
+            <option>Investor</option>
+            <option>Knockdown Rebuild</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea placeholder="Tell us a bit about what you're looking for..."></textarea>
+        </div>
+        <div class="form-check-group">
+          <label class="check-label">
+            <input type="checkbox" required>
+            I agree to be contacted by JTerra Property Group regarding property enquiries
+          </label>
+          <label class="check-label">
+            <input type="checkbox">
+            I'd like to receive updates on new land releases and promotions
+          </label>
+        </div>
+        <button type="submit" class="btn-submit">Submit My Enquiry →</button>
+        <p class="form-privacy">Your details are safe with us. We never share your information with third parties without consent. View our <a href="#" style="color:var(--gold)">Privacy Policy</a>.</p>
+      </form>
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div class="success-title">Enquiry Received!</div>
+        <p class="success-text">Thank you for reaching out to JTerra Property Group.<br>Jaeleen will personally contact you within 24 hours.<br><br>In the meantime, feel free to browse our home designs above or call us directly on <strong>+61 433 422 817</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-tag">Common Questions</div>
+  <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+  <p class="section-subtitle">New to building in Melbourne? Here are the questions we get asked most often.</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the First Home Owner Grant (FHOG) in Victoria?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">The Victorian FHOG provides eligible first home buyers $10,000 when buying or building a new home valued up to $750,000. JTerra guides you through the application process as part of our service.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much deposit do I need to build a new home?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">In most cases you need a minimum 5–10% deposit. With the FHOG and other government incentives, some clients build with as little as 5% deposit. Our finance brokers will assess your individual situation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long does it take to build a new home in Melbourne?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">Typically 12–18 months from contract signing to handover, depending on the builder and complexity. We provide ongoing updates throughout construction so you're never left in the dark.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do I need to find my own land separately?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">No — we offer house and land packages where both are bundled together. We also help clients who already own land find the right home design to match their block's dimensions and orientation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What costs are involved beyond the build price?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">Additional costs typically include stamp duty (on the land), council fees, utility connections, landscaping, fencing, window furnishings, and moving costs. We provide a full breakdown upfront so there are no surprises.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I customise the home design?<div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+      <div class="faq-a">Absolutely. Our builder partners offer extensive customisation through their studio selection process — from kitchen finishes and flooring to façade choices and room configurations. We help you navigate all options.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COST ESTIMATES -->
+<section class="costs" id="costs">
+  <div class="section-tag">For Your Planning</div>
+  <h2 class="section-title">Website Setup <em>Cost Estimates</em></h2>
+  <p class="section-subtitle">Transparent estimates for launching and growing your JTerra online presence. All prices in AUD. Sources: industry averages (2025).</p>
+  <div class="costs-grid">
+    <div class="cost-card fade-in">
+      <div class="cost-icon">🌐</div>
+      <div class="cost-label">Domain Name</div>
+      <div class="cost-range">$15–$35/yr</div>
+      <div class="cost-detail">jterrapropertygroup.com.au via VentraIP, Crazy Domains, or Netfleet. The .com.au extension requires an ABN.</div>
+      <div class="cost-note">Recommended registrar: VentraIP (Australian-owned)</div>
+    </div>
+    <div class="cost-card fade-in">
+      <div class="cost-icon">🖥️</div>
+      <div class="cost-label">Web Hosting</div>
+      <div class="cost-range">$120–$600/yr</div>
+      <div class="cost-detail">Shared hosting from ~$10/mo (Siteground, VentraIP). Managed WordPress or VPS from $50/mo for faster speeds and better SEO.</div>
+      <div class="cost-note">Recommended: SiteGround or VentraIP Business plan</div>
+    </div>
+    <div class="cost-card fade-in">
+      <div class="cost-icon">📈</div>
+      <div class="cost-label">SEO (Ongoing)</div>
+      <div class="cost-range">$800–$2,500/mo</div>
+      <div class="cost-detail">Local Melbourne SEO targeting "first home buyers Melbourne", "house and land packages". Includes Google Business Profile optimisation, content, backlinks.</div>
+      <div class="cost-note">Results typically visible within 3–6 months</div>
+    </div>
+    <div class="cost-card fade-in">
+      <div class="cost-icon">📣</div>
+      <div class="cost-label">Paid Marketing</div>
+      <div class="cost-range">$1,500–$5,000/mo</div>
+      <div class="cost-detail">Google Ads (search intent), Facebook & Instagram lead campaigns targeting Filipino community, South-East Melbourne suburbs, and first home buyers.</div>
+      <div class="cost-note">Expected CPL (cost per lead): $30–$90</div>
+    </div>
+  </div>
+  <div style="margin-top:36px; background:var(--white); border-radius:6px; padding:28px 32px; border-left:4px solid var(--gold); max-width:800px;">
+    <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7;"><strong style="color:var(--navy);">⚠️ Disclaimer:</strong> These are estimated ranges based on publicly available industry data as of 2025. Actual costs vary by provider, scope, and competition. Prices are not guaranteed. Always request quotes from multiple vendors. For SEO and marketing, costs scale with competitiveness of keywords and ad markets.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;flex-shrink:0;">
+          <path d="M40 8 L8 33 L72 33 Z" fill="#1B2A4A"/>
+          <path d="M14 33 L14 70 L66 70 L66 33 Z" fill="#1B2A4A"/>
+          <path d="M40 8 L8 33" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+          <path d="M40 8 L72 33" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+          <circle cx="40" cy="34" r="11" fill="none" stroke="#B8966E" stroke-width="3.5"/>
+          <circle cx="40" cy="34" r="5.5" fill="none" stroke="#B8966E" stroke-width="2.5"/>
+          <rect x="37.8" y="44" width="4.4" height="22" rx="1.5" fill="#B8966E"/>
+          <rect x="42.2" y="52" width="5" height="3.5" rx="1" fill="#B8966E"/>
+          <rect x="42.2" y="59" width="3.5" height="3.5" rx="1" fill="#B8966E"/>
+          <rect x="35" y="48" width="2.5" height="14" rx="0.8" fill="#B8966E" opacity="0.6"/>
+        </svg>
+        <div>
+          <div class="brand-logo">JTERRA</div>
+          <div class="brand-sub">Property Group</div>
+        </div>
+      </div>
+      <p>Connecting you to complete property solutions across Melbourne. Proudly helping families build their dream homes since day one.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Finance & Pre-Approval</a></li>
+        <li><a href="#">Land Selection</a></li>
+        <li><a href="#">Home Design</a></li>
+        <li><a href="#">Construction Support</a></li>
+        <li><a href="#">Knockdown Rebuild</a></li>
+        <li><a href="#">Investment Properties</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#homes">Home Designs</a></li>
+        <li><a href="#suburbs">Our Locations</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#testimonials">Client Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#enquire">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+61433422817">+61 433 422 817</a></li>
+        <li><a href="mailto:info@jterrapropertygroup.com.au">info@jterrapropertygroup.com.au</a></li>
+        <li><a href="#">Melbourne, VIC, Australia</a></li>
+        <li><a href="#">Mon–Sat: 9am – 6pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 JTerra Property Group. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+    <p>This is a website mockup. All property listings, prices and availability are illustrative only.</p>
+  </div>
+</footer>
+
+<!-- STICKY BTNS -->
+<div class="sticky-cta">
+  <a href="tel:+61433422817" class="sticky-btn phone">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+    Call Now
+  </a>
+  <a href="#enquire" class="sticky-btn enquire" onclick="openModal(); return false;">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Free Consultation
+  </a>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title">Book a Free Consultation</div>
+    <div class="modal-sub">Jaeleen will call you back within 24 hours — no pressure, no obligations.</div>
+    <form onsubmit="submitModal(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="Juan" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" placeholder="dela Cruz" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" placeholder="04XX XXX XXX" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" placeholder="juan@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>I'm Interested In</label>
+        <select>
+          <option>House & Land Package</option>
+          <option>Just Land</option>
+          <option>Knockdown Rebuild</option>
+          <option>Finance / Pre-Approval</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Preferred Contact Time</label>
+        <select>
+          <option>Morning (9am–12pm)</option>
+          <option>Afternoon (12pm–5pm)</option>
+          <option>Evening (5pm–7pm)</option>
+          <option>Anytime</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Book My Free Consultation →</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Modal
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function submitModal(e) {
+    e.preventDefault();
+    closeModal();
+    alert('Thank you! Jaeleen will contact you within 24 hours.');
+  }
+
+  // Lead form
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('lead-form').style.display = 'none';
+    const msg = document.getElementById('success-msg');
+    msg.classList.add('show');
+    window.scrollTo({ top: document.getElementById('enquire').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = el.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      el.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  // Filter homes
+  function filterHomes(type, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.home-card').forEach(card => {
+      if (type === 'all' || card.dataset.type.includes(type)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Suburb toggle
+  function toggleSuburb(el) {
+    document.querySelectorAll('.suburb-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Hero stats opacity fix
+  document.querySelector('.hero-stats').style.opacity = '1';
+</script>
+</body>
+</html>
